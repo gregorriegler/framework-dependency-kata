@@ -1,0 +1,8 @@
+spring:
+  security:
+    user:
+      name: "manager"
+      password: "secret"
+      roles: "MANAGER"
+
+
