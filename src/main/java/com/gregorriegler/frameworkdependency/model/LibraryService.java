@@ -20,7 +20,7 @@ public class LibraryService {
         if (securityService.isAuthenticated() && (securityService.isAdmin() || securityService.isUser())) {
             return repository.get();
         } else {
-            throw new AccessDeniedException("only authenticated users are allowed to read books");
+            throw new AccessDeniedException("access denied!");
         }
     }
 
