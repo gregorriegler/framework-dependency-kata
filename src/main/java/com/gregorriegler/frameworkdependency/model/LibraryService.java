@@ -1,5 +1,6 @@
 package com.gregorriegler.frameworkdependency.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -9,13 +10,11 @@ import java.util.Collection;
 @Service
 public class LibraryService {
 
-    private final SecurityService securityService;
-    private final LibraryRepository repository;
+    @Autowired
+    private SecurityService securityService;
 
-    public LibraryService(SecurityService securityService, LibraryRepository repository) {
-        this.securityService = securityService;
-        this.repository = repository;
-    }
+    @Autowired
+    private LibraryRepository repository;
 
     public Collection<Book> getAllBooks() {
         if (securityService.isAuthenticated() && (securityService.isAdmin() || securityService.isUser())) {
