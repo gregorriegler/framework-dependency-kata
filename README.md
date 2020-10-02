@@ -38,7 +38,9 @@ Remove framework related auth code like @PreAuthorize annotations from your mode
 Invert the dependencies the model has on Hibernate or Spring Data.
 Make the persistence implementation a detail, it should be easy to test the model without a database.
 
-### Bonus Exercise #5: Replace the @Transactional annotation with a monadic transaction implementation
+### Bonus Exercise #5: Get rid of @Transactional
+
+Replace the @Transactional annotation with a monadic transaction implementation and avoid the deep callstack caused by the cglib proxy.
 
 ## Reflect on the done refactorings
 
