@@ -3,8 +3,12 @@ package com.gregorriegler.frameworkdependency.web;
 import com.gregorriegler.frameworkdependency.model.Book;
 import com.gregorriegler.frameworkdependency.model.LibraryService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -21,14 +25,20 @@ public class LibraryController {
         this.libraryService = libraryService;
     }
 
-    @GetMapping("/library")
-    public Collection<Book> get() {
+    @GetMapping("/books")
+    public ResponseEntity<Collection<Book>> get() {
         return libraryService.getAllBooks();
     }
 
-    @PutMapping("/library/{isbn}")
+    @PutMapping("/books/{isbn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void add(@PathVariable String isbn, @RequestBody CreateBookRequest request) {
-        libraryService.add(new Book(isbn, request.title, request.author));
+    public void save(@PathVariable String isbn, @RequestBody CreateBookRequest request) {
+        libraryService.save(isbn, request);
+    }
+
+    @PostMapping("/books/{isbn}/ratings")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void rate(@PathVariable String isbn, @AuthenticationPrincipal Authentication authentication, @RequestBody RatingRequest request) {
+        libraryService.rate(isbn, authentication, request);
     }
 }

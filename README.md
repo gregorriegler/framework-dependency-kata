@@ -19,22 +19,30 @@ Run them in your IDE or use the `./tdd.sh` script or `tdd` on Windows to run you
 
 ## Refactoring Exercises
 
-### Exercise #1: Remove Framework based Authorization from the model
+### Exercise #1: Remove CDI from the model
+
+Get rid of framework related DI Code like @Service and @Autowired annotations in your model.
+
+### Exercise #2: Remove Framework based authorization from the model
 
 Logic that governs who is allowed to perform which action should be a part of your model, but the framework should not.
 Remove framework related auth code like @PreAuthorize annotations from your model while maintaining the actual auth logic within your model.
 
-### Exercise #2: Remove CDI from the model
+### Exercise #3: Make sure the model has no dependency on the web
 
-Get rid of framework related DI Code like @Service and @Autowired annotations in your model.
+Remove or invert any dependency the model has on the web such as implementation specifics like http.
+Make the web a detail, it should be easy to add a CLI.
 
-### Exercise #3: Invert the dependency on the Persistence Framework
+### Exercise #4: Invert the dependency on the persistence framework
 
-Make sure there is no dependency from the model to Hibernate or Spring Data.
-Those Frameworks should depend on our model and become a plugin.
+Invert the dependencies the model has on Hibernate or Spring Data.
+Make the persistence implementation a detail, it should be easy to test the model without a database.
 
-### Exercise #4: Reflect on the done refactorings
+### Bonus Exercise #5: Replace the @Transactional annotation with a monadic transaction implementation
+
+## Reflect on the done refactorings
 
 What steps did you take and would there be an easier way?
 What does the result look like? Can you think of a better solution?
 Was it worth it? Discuss Advantages as well as Disadvantages.
+
