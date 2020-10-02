@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithAnonymousUser;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -33,7 +34,7 @@ public class LibraryTest {
     }
 
     @Test
-    @WithMockUser("guest")
+    @WithMockUser(username = "user", roles = "USER")
     void starts_empty() throws Exception {
         mockMvc.perform(get("/library"))
             .andExpect(status().isOk())
@@ -41,7 +42,14 @@ public class LibraryTest {
     }
 
     @Test
-    @WithMockUser(username = "manager", roles = "MANAGER")
+    @WithMockUser(roles = "NOT_A_USER")
+    void non_user_cant_access_library() throws Exception {
+        mockMvc.perform(get("/library"))
+            .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "admin", roles = "ADMIN")
     void finds_created_book() throws Exception {
         mockMvc.perform(put("/library/123")
             .contentType(MediaType.APPLICATION_JSON)
