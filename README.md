@@ -23,15 +23,15 @@ Run them in your IDE or use the `./tdd.sh` script or `tdd` on Windows to run you
 
 Get rid of framework related DI Code like @Service and @Autowired annotations in your model.
 
-### Exercise #2: Remove Framework based authorization from the model
-
-Logic that governs who is allowed to perform which action should be a part of your model, but the framework should not.
-Remove framework related auth code like @PreAuthorize annotations from your model while maintaining the actual auth logic within your model.
-
-### Exercise #3: Make sure the model has no dependency on the web
+### Exercise #2: Make sure the model has no dependency on the web
 
 Remove or invert any dependency the model has on the web such as implementation specifics like http.
 Make the web a detail, it should be easy to add a CLI.
+
+### Exercise #3: Remove Framework based authorization from the model
+
+Logic that governs who is allowed to perform which action should be a part of your model, but the framework should not.
+Remove framework related auth code like @PreAuthorize annotations from your model while maintaining the actual auth logic within your model.
 
 ### Exercise #4: Invert the dependency on the persistence framework
 
