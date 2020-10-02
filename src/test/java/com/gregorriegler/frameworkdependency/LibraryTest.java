@@ -1,6 +1,6 @@
 package com.gregorriegler.frameworkdependency;
 
-import com.gregorriegler.frameworkdependency.model.LibraryRepository;
+import com.gregorriegler.frameworkdependency.repository.BookRepository;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithAnonymousUser;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -26,11 +25,11 @@ public class LibraryTest {
     private MockMvc mockMvc;
 
     @Autowired
-    private LibraryRepository libraryRepository;
+    private BookRepository bookRepository;
 
     @BeforeEach
-    void clearLibrary() {
-        libraryRepository.clear();
+    public void clearRepository() {
+        bookRepository.deleteAll();
     }
 
     @Test

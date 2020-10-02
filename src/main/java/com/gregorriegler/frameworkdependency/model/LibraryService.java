@@ -1,5 +1,6 @@
 package com.gregorriegler.frameworkdependency.model;
 
+import com.gregorriegler.frameworkdependency.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,11 +15,11 @@ public class LibraryService {
     private SecurityService securityService;
 
     @Autowired
-    private LibraryRepository repository;
+    private BookRepository repository;
 
     public Collection<Book> getAllBooks() {
         if (securityService.isAuthenticated() && (securityService.isAdmin() || securityService.isUser())) {
-            return repository.get();
+            return repository.findAll();
         } else {
             throw new AccessDeniedException("access denied!");
         }
@@ -26,6 +27,6 @@ public class LibraryService {
 
     @PreAuthorize("hasRole('ADMIN')")
     public void add(Book book) {
-        repository.add(book);
+        repository.save(book);
     }
 }

@@ -27,3 +27,14 @@ Remove framework related auth code like @PreAuthorize annotations from your mode
 ### Exercise #2: Remove CDI from the model
 
 Get rid of framework related DI Code like @Service and @Autowired annotations in your model.
+
+### Exercise #3: Invert the dependency on the Persistence Framework
+
+Make sure there is no dependency from the model to Hibernate or Spring Data.
+Those Frameworks should depend on our model and become a plugin.
+
+### Exercise #4: Reflect on the done refactorings
+
+What steps did you take and would there be an easier way?
+What does the result look like? Can you think of a better solution?
+Was it worth it? Discuss Advantages as well as Disadvantages.
