@@ -18,7 +18,7 @@ public class LibraryService {
         return repository.get();
     }
 
-    @PreAuthorize("hasRole('ROLE_MANAGER')")
+    @PreAuthorize("hasRole('MANAGER')")
     public void add(Book book) {
         repository.add(book);
     }

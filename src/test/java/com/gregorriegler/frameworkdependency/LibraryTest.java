@@ -35,8 +35,7 @@ public class LibraryTest {
     @Test
     @WithMockUser("guest")
     void starts_empty() throws Exception {
-        mockMvc.perform(
-            get("/library"))
+        mockMvc.perform(get("/library"))
             .andExpect(status().isOk())
             .andExpect(content().json("[]"));
     }
@@ -44,14 +43,13 @@ public class LibraryTest {
     @Test
     @WithMockUser(username = "manager", roles = "MANAGER")
     void finds_created_book() throws Exception {
-        mockMvc.perform(
-            put("/library/123")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(new JSONObject()
-                    .put("title", "Name of Book")
-                    .put("author", "Name of Author")
-                    .toString()
-                )
+        mockMvc.perform(put("/library/123")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new JSONObject()
+                .put("title", "Name of Book")
+                .put("author", "Name of Author")
+                .toString()
+            )
         ).andExpect(status().isNoContent());
 
         mockMvc.perform(get("/library"))
@@ -69,14 +67,12 @@ public class LibraryTest {
     @Test
     @WithMockUser("guest")
     void guest_cant_create_book() throws Exception {
-        mockMvc.perform(
-            put("/library/123")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(new JSONObject()
-                    .put("title", "Name of Book")
-                    .put("author", "Name of Author")
-                    .toString()
-                )
+        mockMvc.perform(put("/library/123")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new JSONObject()
+                .put("title", "Name of Book")
+                .put("author", "Name of Author")
+                .toString())
         ).andExpect(status().isForbidden());
     }
 }
