@@ -38,7 +38,12 @@ Remove framework related auth code like @PreAuthorize annotations from your mode
 Invert the dependencies the model has on Hibernate or Spring Data.
 Make the persistence implementation a detail, it should be easy to test the model without a database.
 
-### Bonus Exercise #5: Get rid of @Transactional
+### Exercise #5: Remove the Dependency on Scheduling Infrastructure from the model
+
+Make sure the model does not depend on @Scheduled. 
+Keep the actual report job within in the model while moving the trigger outside.
+
+### Bonus Exercise #6: Get rid of @Transactional
 
 Replace the @Transactional annotation with a monadic transaction implementation and avoid the deep callstack caused by the cglib proxy.
 
