@@ -4,13 +4,13 @@ Framework Dependency Kata
 The purpose of this refactoring kata is to practice the inverting of framework dependencies in your code.
 
 Frameworks typically make it easy for you to scatter your code with dependencies on it.
-Such dependencies may be harmful.
-Keeping the Framework out of your model brings several advantages.
+Such dependencies may be harmful if they reside in your model.
+Keeping the framework out of your model might be advantageous.
 
 - Your code, especially your model becomes more testable.
 - Your model becomes cleaner as you keep awkward infrastructure code out of it.
 - Tech Upgrades are easy because your model is not changing.
-- The Framework is easy to replace.
+- The Framework becomes a detail that is easy to replace.
 
 ## Tests
 
@@ -18,6 +18,10 @@ There are integrated tests covering the whole application.
 Run them in your IDE or use the `./tdd.sh` script or `tdd` on Windows to run your tests continuously.
 
 ## Refactoring Exercises
+
+The model package contains all the business logic and is scattered with framework dependencies.
+Your task is to remove or invert them, so the model does not depend on the framework at all.
+You are allowed to create new Infrastructure code like @Configuration classes that depend on your model, but the model should never depend back on them.
 
 ### Exercise #1: Remove CDI from the model
 
