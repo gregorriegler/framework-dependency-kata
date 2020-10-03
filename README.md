@@ -3,7 +3,7 @@ Framework Dependency Kata
 
 The purpose of this refactoring kata is to practice the inverting of framework dependencies in your code.
 
-Frameworks typically make it easy for you to scatter your code with dependencies on it.
+Frameworks typically make it easy for you to scatter your code with dependencies on them.
 Such dependencies may be harmful if they reside in your model.
 Keeping the framework out of your model might be advantageous.
 
