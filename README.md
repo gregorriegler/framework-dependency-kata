@@ -8,7 +8,7 @@ Such dependencies may be harmful if they reside in your model.
 Keeping the framework out of your model might be advantageous.
 
 - Your code, especially your model becomes more testable.
-- It allows you to unittest your model without the framework, those tests are much faster.
+- It allows you to unittest your model without the framework. Those tests are much faster.
 - Your model becomes cleaner as you keep awkward infrastructure code out of it.
 - Tech Upgrades are easy because your model is not changing.
 - The Framework becomes a detail that is easy to replace.
