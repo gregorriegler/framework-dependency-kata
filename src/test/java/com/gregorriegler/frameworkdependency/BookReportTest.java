@@ -30,10 +30,7 @@ public class BookReportTest {
 
     @Test
     public void writes_proper_report() throws IOException {
-        Book book = new Book();
-        book.isbn = "123";
-        book.title = "title";
-        when(repository.findAll()).thenReturn(List.of(book));
+        when(repository.findAll()).thenReturn(List.of(new Book("123", "title", "irrelevant")));
 
         libraryService.createBookReport();
 
@@ -47,7 +44,6 @@ public class BookReportTest {
             .sorted(Comparator.comparingLong(File::lastModified))
             .collect(Collectors.toList());
         File latestReport = reports.get(reports.size() - 1);
-        String report = Files.readString(Path.of(latestReport.toURI()));
-        return report;
+        return Files.readString(Path.of(latestReport.toURI()));
     }
 }
