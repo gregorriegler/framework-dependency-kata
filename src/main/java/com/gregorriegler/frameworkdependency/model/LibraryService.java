@@ -39,7 +39,7 @@ public class LibraryService {
 
     @PreAuthorize("hasRole('ADMIN')")
     @Transactional
-    public void save(String isbn, CreateBookRequest request) {
+    public void createBook(String isbn, CreateBookRequest request) {
         Book book = repository.findById(isbn).orElseGet(Book::new);
         book.isbn = isbn;
         book.title = request.title;
