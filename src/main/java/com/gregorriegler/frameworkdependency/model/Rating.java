@@ -1,7 +1,5 @@
 package com.gregorriegler.frameworkdependency.model;
 
-import com.gregorriegler.frameworkdependency.web.RatingRequest;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;

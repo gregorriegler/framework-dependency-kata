@@ -1,4 +1,4 @@
-package com.gregorriegler.frameworkdependency.web;
+package com.gregorriegler.frameworkdependency.model;
 
 public class RatingRequest {
     public Stars stars;

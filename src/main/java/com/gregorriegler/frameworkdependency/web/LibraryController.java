@@ -35,10 +35,4 @@ public class LibraryController {
     public void save(@PathVariable String isbn, @RequestBody CreateBookRequest request) {
         libraryService.save(isbn, request);
     }
-
-    @PostMapping("/books/{isbn}/ratings")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void rate(@PathVariable String isbn, @AuthenticationPrincipal Authentication authentication, @RequestBody RatingRequest request) {
-        libraryService.rate(isbn, authentication, request);
-    }
 }
