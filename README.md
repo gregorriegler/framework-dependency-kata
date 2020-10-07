@@ -49,9 +49,9 @@ Make sure the model does not depend on *@Scheduled*.
 Keep the actual report job within in the model while moving the trigger outside.
 Can you find a way to keep the logic that says _when_ it's triggered inside the model without depending on the framework?
 
-### Bonus Exercise #6: Get rid of @Transactional
+### Bonus Exercise #6: Get rid of *@Transactional*
 
-Replace the @Transactional annotation with a monadic transaction implementation and avoid the deep callstack caused by the cglib proxy.
+Replace the *@Transactional* annotation with a monadic transaction implementation and avoid the deep callstack caused by the cglib proxy.
 
 ## Reflect on the done refactorings
 
