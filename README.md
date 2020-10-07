@@ -48,6 +48,7 @@ Make the persistence implementation a detail, it should be easy to test the mode
 Make sure the model does not depend on *@Scheduled*. 
 Keep the actual report job within in the model while moving the trigger outside.
 Can you find a way to keep the logic that says _when_ it's triggered inside the model without depending on the framework?
+Is it feasible to do so?
 
 ### Bonus Exercise #6: Get rid of *@Transactional*
 
