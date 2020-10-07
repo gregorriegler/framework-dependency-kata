@@ -53,6 +53,12 @@ Can you find a way to keep the logic that says _when_ it's triggered inside the 
 
 Replace the *@Transactional* annotation with a monadic transaction implementation and avoid the deep callstack caused by the cglib proxy.
 
+### Bonus Exercise #7: Unittest your model
+
+Add unittests for your model, no *@SpringBootTest* or similar overhead allowed.
+Just your testing framework (eg JUnit) and possibly a mocking framework.
+Was it easy? How fast are they compared to the integrated test suite?
+
 ## Reflect on the done refactorings
 
 What steps did you take and would there be an easier way?
