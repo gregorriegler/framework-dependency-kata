@@ -22,11 +22,11 @@ Run them in your IDE or use the `./tdd.sh` script or `tdd` on Windows to run you
 
 The model package contains all the business logic and is scattered with framework dependencies.
 Your task is to remove or invert them, so the model does not depend on the framework at all.
-You are allowed to create new Infrastructure code like @Configuration classes that depend on your model, but the model should never depend back on them.
+You are allowed to create new Infrastructure code like *@Configuration* classes that depend on your model, but the model should never depend back on them.
 
 ### Exercise #1: Remove CDI from the model
 
-Get rid of framework related DI Code like @Service and @Autowired annotations in your model.
+Get rid of framework related DI Code like *@Service* and *@Autowired* annotations in your model.
 
 ### Exercise #2: Make sure the model has no dependency on the web
 
@@ -36,7 +36,7 @@ Make the web a detail, it should be easy to add a CLI.
 ### Exercise #3: Remove Framework based authorization from the model
 
 Logic that governs who is allowed to perform which action should be a part of your model, but the framework should not.
-Remove framework related auth code like @PreAuthorize annotations from your model while maintaining the actual auth logic within your model.
+Remove framework related auth code like *@PreAuthorize* annotations from your model while maintaining the actual auth logic within your model.
 
 ### Exercise #4: Invert the dependency on the persistence framework
 
@@ -45,8 +45,9 @@ Make the persistence implementation a detail, it should be easy to test the mode
 
 ### Exercise #5: Remove the Dependency on Scheduling Infrastructure from the model
 
-Make sure the model does not depend on @Scheduled. 
+Make sure the model does not depend on *@Scheduled*. 
 Keep the actual report job within in the model while moving the trigger outside.
+Can you find a way to keep the logic that says _when_ it's triggered inside the model without depending on the framework?
 
 ### Bonus Exercise #6: Get rid of @Transactional
 
