@@ -20,9 +20,11 @@ Run them in your IDE or use the `./tdd.sh` script or `tdd` on Windows to run you
 
 ## Refactoring Exercises
 
-The model package contains all the business logic and is scattered with framework dependencies.
+The model package contains all (honestly not much) business logic and is scattered with framework dependencies.
 Your task is to remove or invert them, so the model does not depend on the framework at all.
 You are allowed to create new Infrastructure code like *@Configuration* classes that depend on your model, but the model should never depend back on them.
+Don't have to do all Exercises. 
+Pick one that is interesting to you and focus on it.
 
 ### Exercise #1: Remove CDI from the model
 
