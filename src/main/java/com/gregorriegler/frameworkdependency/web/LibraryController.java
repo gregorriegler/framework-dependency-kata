@@ -30,6 +30,7 @@ public class LibraryController {
     @PutMapping("/books/{isbn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void save(@PathVariable String isbn, @RequestBody CreateBookRequest request) {
-        libraryService.createBook(isbn, request);
+        request.isbn = isbn;
+        libraryService.createBook(request);
     }
 }
