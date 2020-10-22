@@ -18,7 +18,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    runtime 'com.h2database:h2'
+    runtimeOnly 'com.h2database:h2'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -39,7 +39,7 @@ testlogger {
     slowThreshold 2000
     showSummary true
     showSimpleNames true
-    showPassed true
+    showPassed false
     showSkipped true
     showFailed true
     showStandardStreams false
