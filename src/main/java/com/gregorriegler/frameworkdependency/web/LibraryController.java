@@ -2,6 +2,7 @@ package com.gregorriegler.frameworkdependency.web;
 
 import com.gregorriegler.frameworkdependency.model.Book;
 import com.gregorriegler.frameworkdependency.model.LibraryService;
+import com.gregorriegler.frameworkdependency.SpringBootLogin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,6 @@ public class LibraryController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void save(@PathVariable String isbn, @RequestBody CreateBookRequest request) {
         request.isbn = isbn;
-        libraryService.createBook(request);
+        libraryService.createBook(request, new SpringBootLogin());
     }
 }

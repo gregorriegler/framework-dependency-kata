@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,9 +36,10 @@ public class LibraryService {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @Transactional
-    public void createBook(CreateBookRequest request) {
+    public void createBook(CreateBookRequest request, Login login) {
+        login.assertUserIsAdmin();
+
         Book book = repository.findById(request.isbn).orElseGet(Book::new);
         book.isbn = request.isbn;
         book.title = request.title;
