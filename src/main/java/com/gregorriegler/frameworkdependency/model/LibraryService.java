@@ -25,14 +25,14 @@ public class LibraryService {
     private BookRepository repository;
 
     public ResponseEntity<Collection<Book>> getAllBooks(Login login) {
-        login.assertHasAnyRole();
+        login.assertIsAdminOrUser();
 
         return ResponseEntity.ok(repository.findAll());
     }
 
     @Transactional
     public void createBook(CreateBookRequest request, Login login) {
-        login.assertUserIsAdmin();
+        login.assertIsAdmin();
 
         Book book = repository.findById(request.isbn).orElseGet(Book::new);
         book.isbn = request.isbn;

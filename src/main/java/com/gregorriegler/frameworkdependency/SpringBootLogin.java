@@ -16,30 +16,19 @@ public class SpringBootLogin implements Login {
     }
 
     @Override
-    public void assertAuthenticated() {
-        if (!authentication.isAuthenticated()) {
-            throw new AccessDeniedException("access denied!");
-        }
+    public void assertIsAdmin() {
+        assertHasRole("ROLE_ADMIN");
     }
 
     @Override
-    public void assertUserIsAdmin() {
-        assertAuthenticated();
-        if (!isAdmin()) {
-            throw new AccessDeniedException("user not an admin");
-        }
+    public void assertIsAdminOrUser() {
+        assertHasRole("ROLE_ADMIN", "ROLE_USER");
     }
 
-    @Override
-    public void assertHasAnyRole() {
-        assertAuthenticated();
-        if (!hasAnyRole("ROLE_ADMIN", "ROLE_USER")) {
+    public void assertHasRole(String... roles) {
+        if (!hasAnyRole(roles)) {
             throw new AccessDeniedException("access denied!");
         }
-    }
-
-    private boolean isAdmin() {
-        return hasAnyRole("ROLE_ADMIN");
     }
 
     private boolean hasAnyRole(String... roles) {
