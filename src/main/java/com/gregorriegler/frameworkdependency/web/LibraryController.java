@@ -5,6 +5,7 @@ import com.gregorriegler.frameworkdependency.model.LibraryService;
 import com.gregorriegler.frameworkdependency.SpringBootLogin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -24,14 +25,14 @@ public class LibraryController {
     }
 
     @GetMapping("/books")
-    public ResponseEntity<Collection<Book>> get() {
-        return libraryService.getAllBooks();
+    public ResponseEntity<Collection<Book>> get(Authentication authentication) {
+        return libraryService.getAllBooks(new SpringBootLogin(authentication));
     }
 
     @PutMapping("/books/{isbn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void save(@PathVariable String isbn, @RequestBody CreateBookRequest request) {
+    public void save(@PathVariable String isbn, @RequestBody CreateBookRequest request, Authentication authentication) {
         request.isbn = isbn;
-        libraryService.createBook(request, new SpringBootLogin());
+        libraryService.createBook(request, new SpringBootLogin(authentication));
     }
 }

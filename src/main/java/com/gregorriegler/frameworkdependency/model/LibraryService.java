@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,17 +22,12 @@ public class LibraryService {
     private static final Logger LOG = LoggerFactory.getLogger(LibraryService.class);
 
     @Autowired
-    private SecurityService securityService;
-
-    @Autowired
     private BookRepository repository;
 
-    public ResponseEntity<Collection<Book>> getAllBooks() {
-        if (securityService.isAuthenticated() && (securityService.isAdmin() || securityService.isUser())) {
-            return ResponseEntity.ok(repository.findAll());
-        } else {
-            throw new AccessDeniedException("access denied!");
-        }
+    public ResponseEntity<Collection<Book>> getAllBooks(Login login) {
+        login.assertHasAnyRole();
+
+        return ResponseEntity.ok(repository.findAll());
     }
 
     @Transactional
