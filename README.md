@@ -2,15 +2,17 @@ Framework Dependency Kata
 -------------------------
 
 The purpose of this refactoring kata is to practice the inverting of framework dependencies in your code.
+Some of the steps may be exaggerating which is by design.
+Sometimes we have to try crazy things before we can judge whether they're worth it. 
 
 Frameworks typically make it easy for you to scatter your code with dependencies on them.
 Such dependencies may be harmful if they reside in your model.
 Keeping the framework out of your model can be advantageous.
 
 - Your code, especially your model becomes more testable.
-- It allows you to unittest your model without the framework. Those tests are much faster.
-- Your model becomes cleaner as you keep awkward infrastructure code out of it.
-- Tech Upgrades are easy because your model is not changing.
+- It allows you to unittest your model without the framework. Those tests are faster.
+- Your model becomes cleaner as you keep awkward infrastructure out of it.
+- Tech Upgrades may become easier as your model is not changing.
 - The Framework becomes a detail that is easy to replace.
 
 ## Tests
