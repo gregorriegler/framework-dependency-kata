@@ -1,7 +1,7 @@
 Framework Dependency Kata
 -------------------------
 
-The purpose of this refactoring kata is to practice the inverting of framework dependencies in your code.
+The purpose of this refactoring kata is to practice the inversion of framework dependencies in your code.
 Some of the steps may be exaggerating which is by design.
 Sometimes we have to try crazy things before we can judge whether they're worth it. 
 
