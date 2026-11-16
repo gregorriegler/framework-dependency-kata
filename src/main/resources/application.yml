@@ -1,8 +1,17 @@
 spring:
+  datasource:
+    url: jdbc:h2:file:./data/librarydb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+
   security:
     user:
       name: "manager"
       password: "secret"
-      roles: "MANAGER"
+      roles: "ADMIN,USER"
 
 
