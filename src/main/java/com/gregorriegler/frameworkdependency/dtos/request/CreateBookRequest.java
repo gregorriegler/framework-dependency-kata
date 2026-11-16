@@ -1,4 +1,4 @@
-package com.gregorriegler.frameworkdependency.web;
+package com.gregorriegler.frameworkdependency.dtos.request;
 
 public class CreateBookRequest {
     public String isbn;

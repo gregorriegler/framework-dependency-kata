@@ -1,4 +1,4 @@
-package com.gregorriegler.frameworkdependency.model;
+package com.gregorriegler.frameworkdependency.dtos.request;
 
 public class RatingRequest {
     public Stars stars;

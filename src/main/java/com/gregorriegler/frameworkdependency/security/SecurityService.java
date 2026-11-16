@@ -1,4 +1,4 @@
-package com.gregorriegler.frameworkdependency.model;
+package com.gregorriegler.frameworkdependency.security;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;

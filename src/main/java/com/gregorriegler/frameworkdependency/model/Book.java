@@ -20,9 +20,6 @@ public class Book {
     @OneToMany(cascade = CascadeType.ALL)
     public List<Rating> ratings = new ArrayList<>();
 
-    /**
-     * for hibernate
-     */
     public Book() {
     }
 

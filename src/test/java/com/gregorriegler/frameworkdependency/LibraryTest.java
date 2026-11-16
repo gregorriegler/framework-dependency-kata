@@ -29,9 +29,12 @@ public class LibraryTest {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private com.gregorriegler.frameworkdependency.repository.BookRepository springDataBookRepository;
+
     @BeforeEach
     public void clearRepository() {
-        bookRepository.deleteAll();
+        springDataBookRepository.deleteAll();
     }
 
     @Test

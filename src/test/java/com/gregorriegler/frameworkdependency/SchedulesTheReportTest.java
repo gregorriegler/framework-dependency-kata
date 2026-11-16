@@ -1,9 +1,9 @@
 package com.gregorriegler.frameworkdependency;
 
-import com.gregorriegler.frameworkdependency.model.LibraryService;
+import com.gregorriegler.frameworkdependency.services.LibraryService;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.time.Duration;
 
@@ -12,7 +12,7 @@ import static org.awaitility.Awaitility.await;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 
-@SpringJUnitConfig(FrameworkDependencyKataApplication.class)
+@SpringBootTest
 public class SchedulesTheReportTest {
  
     @SpyBean

@@ -11,5 +11,4 @@ public class FrameworkDependencyKataApplication {
     public static void main(String[] args) {
 		SpringApplication.run(FrameworkDependencyKataApplication.class, args);
 	}
-
 }

@@ -1,7 +1,8 @@
-package com.gregorriegler.frameworkdependency.web;
+package com.gregorriegler.frameworkdependency.controller;
 
+import com.gregorriegler.frameworkdependency.dtos.request.CreateBookRequest;
 import com.gregorriegler.frameworkdependency.model.Book;
-import com.gregorriegler.frameworkdependency.model.LibraryService;
+import com.gregorriegler.frameworkdependency.services.LibraryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

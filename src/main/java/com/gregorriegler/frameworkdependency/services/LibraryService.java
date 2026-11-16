@@ -1,7 +1,9 @@
-package com.gregorriegler.frameworkdependency.model;
+package com.gregorriegler.frameworkdependency.services;
 
+import com.gregorriegler.frameworkdependency.model.Book;
 import com.gregorriegler.frameworkdependency.repository.BookRepository;
-import com.gregorriegler.frameworkdependency.web.CreateBookRequest;
+import com.gregorriegler.frameworkdependency.security.SecurityService;
+import com.gregorriegler.frameworkdependency.dtos.request.CreateBookRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

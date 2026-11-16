@@ -1,8 +1,8 @@
 package com.gregorriegler.frameworkdependency;
 
 import com.gregorriegler.frameworkdependency.model.Book;
-import com.gregorriegler.frameworkdependency.model.LibraryService;
 import com.gregorriegler.frameworkdependency.repository.BookRepository;
+import com.gregorriegler.frameworkdependency.services.LibraryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

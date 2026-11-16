@@ -9,5 +9,4 @@ class FrameworkDependencyKataApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
