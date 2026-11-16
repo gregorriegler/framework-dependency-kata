@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\gregorriegler",
+    "\\src\\main\\java\\com\\gregorriegler\\frameworkdependency",
+    "\\src\\main\\java\\com\\gregorriegler\\frameworkdependency\\model",
+    "\\src\\main\\java\\com\\gregorriegler\\frameworkdependency\\repository",
+    "\\src\\main\\java\\com\\gregorriegler\\frameworkdependency\\web"
+  ],
+  "SelectedNode": "\\src\\main\\java\\com\\gregorriegler\\frameworkdependency\\model\\Book.java",
+  "PreviewInSolutionExplorer": false
+}
